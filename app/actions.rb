@@ -8,3 +8,8 @@ get '/messages' do
   erb :'messages/index'
   # erb :'index'
 end
+
+
+get '/messages/new' do
+  erb :'messages/new'
+end
