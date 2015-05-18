@@ -10,6 +10,7 @@ get '/messages' do
 end
 
 
+
 get '/messages/new' do
   erb :'messages/new'
 end
@@ -20,7 +21,7 @@ get '/messages/:id' do
 end
 
 post '/messages' do
-  binding.pry
+  # binding.pry
   @message = Message.new(
 
     title: params[:title],
