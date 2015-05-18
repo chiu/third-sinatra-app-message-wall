@@ -1,19 +1,31 @@
-<!-- new.erb -->
+<h1>Post a Message</h1>
+<hr/>
+
+<% if @message && @message.errors.any? %>
+  <div>
+    <strong>Some issues with your message, please fix them:</strong>
+    <ul>
+      <% @message.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 
 <form method="post" action="/messages">
   <div>
     <label>Author:</label>
-    <input type="text" name="author">
+    <input type="text" name="author" value="<%= @message && @message.author %>">
   </div>
   <div>
-    <label>Subject:</label>
-    <input type="text" name="title">
+    <label>Title:</label>
+    <input type="text" name="title" value="<%= @message && @message.title %>">
   </div>
   <div>
     <label>Content:</label>
-    <input type="text" name="content">
+    <input type="text" name="content" value="<%= @message && @message.content %>">
   </div>
   <div>
-    <input type="submit" value="Submit">
+    <input type="submit" value="Submit" >
   </div>
 </form>
